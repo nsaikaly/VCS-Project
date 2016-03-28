@@ -10,7 +10,7 @@
 This is the first part of our VCS (Version Control System) project. It only implements an initial use- case: Create Repo. It also makes a number of simplifying assumptions in order to get to working S/W quickly.
 
 ### External Requirements:
-.gitignore obtained from https://github.com/github/gitignore/blob/master/Python.gitignore
+None
 
 ### Build, Installation, and Setup.
 Copy the backend.py into the desired project location. Uncomment line 103 from the backend.py and the run the script by typing python backend.py in to the command line.
