@@ -1,0 +1,5 @@
+# OS X Stuff
+.DS_Store
+
+# Python Byte Code
+*.pyc
