@@ -86,7 +86,7 @@ def create_manifest(directory_list):
     manifest_file.close()
 
 # Write the project tree to the manifest file.
-# Globals: None
+# Globals: None.
 # ALine count = 7
 def write_hierarchy(manifest_file, directory_list):
     """Writes the project hierarchy to the manifest file."""
@@ -110,7 +110,7 @@ def write_hierarchy(manifest_file, directory_list):
     manifest_file.write(current_date)
 
 # Helper function for write_hierarchy.
-# Globals: None
+# Globals: None.
 # ALine count = 8
 def write_file(manifest_file, directory_list):
     """Helper function for write_hierarchy."""
@@ -138,7 +138,7 @@ def write_file(manifest_file, directory_list):
 
 
 # Creates the leaf directory folder for the files.
-# Globals: None
+# Globals: None.
 # ALine count = 8
 def create_leaf(directory_list):
     """Creates the leaf directory folder for the files.
@@ -166,7 +166,7 @@ def create_leaf(directory_list):
             shutil.move(file_path + check_sum_name, file_path + files + "/" + check_sum_name)
 
 # Gets the check_sum for the file.
-# Globals: None
+# Globals: None.
 # ALine Count = 7
 def check_sum(file_name):
     """Gets the check_sum for the file."""

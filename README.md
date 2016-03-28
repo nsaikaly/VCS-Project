@@ -33,3 +33,5 @@ Unit Testing for sample input
 
 ### Bugs
 We are not sure if the script will run on Windows OS.
+
+Did not test to check if a directory contains directory of files. So I believe there is an issue when a project tree contains more directories instead of files.
