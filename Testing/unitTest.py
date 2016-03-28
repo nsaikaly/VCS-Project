@@ -4,9 +4,9 @@ from inputFile import first_input, second_input
 
 NAME_OF_MANIFEST_PATH = "./repo343/MANIFEST/"
 
-def diffFile(manifestFile, outputFile):
-    a_manifest = get_lines(manifestFile, [])
-    a_output = get_lines(outputFile, [])
+def diff_file(manifest_file, output_file):
+    a_manifest = get_lines(manifest_file, [])
+    a_output = get_lines(output_file, [])
     for index in range(len(a_manifest) - 1):
         if a_manifest[index] != a_output[index]:
             return False
@@ -18,8 +18,8 @@ def get_lines(file, array):
     return array
 
 def get_manifest():
-    for (dirpath, dirnames, filenames) in os.walk(NAME_OF_MANIFEST_PATH):
-        return filenames[-1]
+    for (dir_path, dir_names, file_names) in os.walk(NAME_OF_MANIFEST_PATH):
+        return file_names[-1]
 
 def first_test():
     assert first_input()
@@ -51,13 +51,13 @@ def both_test():
     return True
 
 def test_file(path):
-    manifestFile = NAME_OF_MANIFEST_PATH + get_manifest()
-    outputFile = open(path, "r")
-    manifestFile = open(manifestFile, "r")
-    assert diffFile(manifestFile, outputFile)
-    print "Assert Successful. manifestFile equals " + path + "..."
-    manifestFile.close()
-    outputFile.close()
+    manifest_file = NAME_OF_MANIFEST_PATH + get_manifest()
+    output_file = open(path, "r")
+    manifest_file = open(manifest_file, "r")
+    assert diff_file(manifest_file, output_file)
+    print "Assert Successful. manifest_file equals " + path + "..."
+    manifest_file.close()
+    output_file.close()
 
 assert first_test()
 assert second_test()
