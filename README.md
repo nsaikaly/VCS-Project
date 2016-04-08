@@ -13,7 +13,7 @@ This is the first part of our VCS (Version Control System) project. It only impl
 None
 
 ### Build, Installation, and Setup.
-Copy the backend.py into the desired project location. Uncomment line 103 from the backend.py and the run the script by typing python backend.py in to the command line.
+Copy the backend.py into the desired project location. Uncomment the last from the backend.py and the run the script by typing python backend.py in to the command line.
 
 To test the program run the script unitTest.py to test the minimal ptree and tiny ptree with files inputs.
 
