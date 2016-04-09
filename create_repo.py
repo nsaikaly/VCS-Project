@@ -183,5 +183,7 @@ def check_sum(file_name):
 
     return str(check_sum) # return string representation of check_sum.
 
+if __name__ =
+
 # Uncomment line 187 if you are not running this script independently.
 # create_repo()
