@@ -1,8 +1,8 @@
 import os, shutil
 from datetime import datetime
 
-g_NAME_OF_REPO = "./repo343/" # Repo Directory Path.
-g_NAME_OF_MANIFEST_FOLDER = "./repo343/MANIFEST/" # Manifest Directory Path.
+g_NAME_OF_REPO = os.getcwd() + "/repo343" # Repo Directory Path.
+g_NAME_OF_MANIFEST_FOLDER = os.getcwd() + "/repo343/MANIFEST" # Manifest Directory Path.
 
 
 # Creates a repo343 that stores all the files for the project tree.
@@ -38,10 +38,10 @@ def copy_tree():
     """Copies the project tree where backend.py is located."""
 
     # All the files to ignore when copying the Project Tree.
-    FILES_TO_IGNORE = ('backend.py', 'backend.pyc', 'inputFile.py', 'inputFile.pyc', 'unitTest.py', 'unitTest.pyc', 'Testing', '.git', '*.md', '.DS_Store', '.gitignore', 'repo343', 'myptOutPut', 'mypt2OutPut', 'bothptOutPut')
+    FILES_TO_IGNORE = ('*.py', '*.pyc', 'Testing', '.git', '*.md', '.DS_Store', '.gitignore', 'repo343', 'myptOutPut', 'mypt2OutPut', 'bothptOutPut')
 
     # Copies the project tree to the repo343 directory.
-    shutil.copytree(".", g_NAME_OF_REPO, ignore = shutil.ignore_patterns(*FILES_TO_IGNORE))
+    shutil.copytree(os.getcwd(), g_NAME_OF_REPO, ignore = shutil.ignore_patterns(*FILES_TO_IGNORE))
 
 # Walk through the initial repo343 directory.
 # Globals: parameter use for g_NAME_OF_REPO and g_NAME_OF_MANIFEST_FOLDER
@@ -111,7 +111,7 @@ def write_hierarchy(manifest_file, directory_list):
 
 # Helper function for write_hierarchy.
 # Globals: None.
-# ALine count = 8
+# ALine count = 9
 def write_file(manifest_file, directory_list):
     """Helper function for write_hierarchy."""
 
@@ -122,18 +122,18 @@ def write_file(manifest_file, directory_list):
     # loop through the directory in the list of directories
     for directory in directory_list:
 
-        # Write the directory path in file
-        manifest_file.write("\t" + directory + "\n")
+        # Write the directory path in file except for the mainfest file.
+        if not (directory == g_NAME_OF_MANIFEST_FOLDER):
+            manifest_file.write("\t" + directory + "\n")
 
-        # loop through the file in the list of files
-        for files in directory_list[directory]:
+            # loop through the file in the list of files
+            for files in directory_list[directory]:
 
-            # Append path for files to listing
-            a_file_listing.append(directory + "/" + files)
+                # Append path for files to listing
+                a_file_listing.append(directory + "/" + files)
 
-            # write the path for the file and its checksum
-            manifest_file.write("\t\t" + directory + "/" + files + "/" + check_sum(directory + "/" + files) + "\n")
-
+                # write the path for the file and its checksum
+                manifest_file.write("\t\t" + directory + "/" + files + "/" + check_sum(directory + "/" + files) + "\n")
     return a_file_listing # return list of file paths.
 
 
@@ -182,8 +182,6 @@ def check_sum(file_name):
     file.close() # close the file.
 
     return str(check_sum) # return string representation of check_sum.
-
-if __name__ =
 
 # Uncomment line 187 if you are not running this script independently.
 # create_repo()
