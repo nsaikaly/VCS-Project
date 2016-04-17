@@ -8,7 +8,7 @@ g_NAME_OF_MANIFEST_FOLDER = os.getcwd() + "/repo343/MANIFEST" # Manifest Directo
 # Creates a repo343 that stores all the files for the project tree.
 # Globals: parameter use for g_NAME_OF_REPO, g_NAME_OF_MANIFEST_FOLDER.
 # ALine count = 9
-def create_repo():
+def initialize_repo():
     """Creates a repo343 that stores all the files for the project tree."""
 
     # checks if the g_NAME_OF_REPO path exist.
@@ -38,7 +38,7 @@ def copy_tree():
     """Copies the project tree where backend.py is located."""
 
     # All the files to ignore when copying the Project Tree.
-    FILES_TO_IGNORE = ('*.py', '*.pyc', 'Testing', '.git', '*.md', '.DS_Store', '.gitignore', 'repo343', 'myptOutPut', 'mypt2OutPut', 'bothptOutPut')
+    FILES_TO_IGNORE = ('create_repo.py', 'create_repo.pyc', 'check_in.py', 'check_in.pyc', 'check_out.py', 'check_out.pyc', 'Testing', '.git', '*.md', '.DS_Store', '.gitignore', 'repo343', 'myptOutPut', 'mypt2OutPut', 'bothptOutPut')
 
     # Copies the project tree to the repo343 directory.
     shutil.copytree(os.getcwd(), g_NAME_OF_REPO, ignore = shutil.ignore_patterns(*FILES_TO_IGNORE))
@@ -56,6 +56,7 @@ def walk_tree():
 
         # Check if the dir_path is not the Manifest Directory.
         if dir_path != g_NAME_OF_MANIFEST_FOLDER:
+
             a_list_of_files = [] # Array to hold list of files.
 
             # Walks to get all the files in a directory
@@ -74,7 +75,7 @@ def create_manifest(directory_list):
     """Creates the manifest file for the repo343 directory."""
 
     # Sets the file name of MANIFEST to the current datetime.
-    MANIFEST = g_NAME_OF_MANIFEST_FOLDER + str(datetime.now())
+    MANIFEST = g_NAME_OF_MANIFEST_FOLDER + "/" + str(datetime.now())
 
     # Create and open manifest file.
     manifest_file = open(MANIFEST, 'w+')
@@ -184,4 +185,6 @@ def check_sum(file_name):
     return str(check_sum) # return string representation of check_sum.
 
 # Uncomment line 187 if you are not running this script independently.
-# create_repo()
+
+if __name__ == "__main__":
+    initialize_repo()
