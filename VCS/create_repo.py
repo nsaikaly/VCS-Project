@@ -38,7 +38,7 @@ def copy_tree():
     """Copies the project tree where backend.py is located."""
 
     # All the files to ignore when copying the Project Tree.
-    FILES_TO_IGNORE = ('create_repo.py', 'create_repo.pyc', 'check_in.py', 'check_in.pyc', 'check_out.py', 'check_out.pyc', 'Testing', '.git', '*.md', '.DS_Store', '.gitignore', 'repo343', 'myptOutPut', 'mypt2OutPut', 'bothptOutPut')
+    FILES_TO_IGNORE = ('main.py','VCS', '.git', '*.md', '.DS_Store', '.gitignore', 'repo343', 'myptOutPut', 'mypt2OutPut', 'bothptOutPut')
 
     # Copies the project tree to the repo343 directory.
     shutil.copytree(os.getcwd(), g_NAME_OF_REPO, ignore = shutil.ignore_patterns(*FILES_TO_IGNORE))
@@ -70,7 +70,7 @@ def walk_tree():
 
 # Creates the manifest file for the repo343 directory.
 # Globals: g_NAME_OF_MANIFEST_FOLDER use for file path.
-# ALine count = 4
+# ALine count = 5
 def create_manifest(directory_list):
     """Creates the manifest file for the repo343 directory."""
 
@@ -82,6 +82,9 @@ def create_manifest(directory_list):
 
     # Write project tree hierachy to manifest file.
     write_hierarchy(manifest_file, directory_list)
+
+    # Write parent manifest file to current manifest file.
+    manifest_file.write("\nParent file: null")
 
     # Close manifest file.
     manifest_file.close()
@@ -184,7 +187,6 @@ def check_sum(file_name):
 
     return str(check_sum) # return string representation of check_sum.
 
-# Uncomment line 187 if you are not running this script independently.
-
+# Check if the script is ran independently.
 if __name__ == "__main__":
     initialize_repo()
