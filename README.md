@@ -14,14 +14,25 @@ This is the second part of our VCS (Version Control System) project. In this pro
 None
 
 ### Build, Installation, and Setup.
-Copy the main.py and the VCS directory into the desired project location.
+Copy the main.py and the VCS directory into the desired project directory.
+
+We are assuming that create_repo has been called before check_in or check_out has been called. Also We are assuming that the user doesn't have additional folders in the desired project directory.
 
 ### Usage
+In the desired project directory...
+
+To create a repo for your project:
 ```
 python main.py create_repo
+```
 
+To create check_in the repo:
+```
 python main.py check_in.py
+```
 
+To check_out a repo:
+```
 python main.py check_out.py
 ```
 
