@@ -7,31 +7,28 @@
 * Project Part 1
 
 ### Introduction
-This is the first part of our VCS (Version Control System) project. It only implements an initial use- case: Create Repo. It also makes a number of simplifying assumptions in order to get to working S/W quickly.
+This is the second part of our VCS (Version Control System) project. In this project part, we add the ability to check-in a project tree (mostly already done), and to check-out a project tree to a new location. The check-in ability lets the user checkpoint various intermediate states/versions of a project tree. The check-out ability lets the user, or another user, check-out a specific version of the project tree either to create a branch (e.g., so several users can work in parallel, or to specialize a project for the Android OS) or to rollback to a previous known good project state.
+
 
 ### External Requirements:
 None
 
 ### Build, Installation, and Setup.
-Copy the backend.py into the desired project location. Uncomment the last from the backend.py and the run the script by typing python backend.py in to the command line.
-
-To test the program run the script unitTest.py to test the minimal ptree and tiny ptree with files inputs.
+Copy the main.py and the VCS directory into the desired project location.
 
 ### Usage
 ```
-mkdir ~/Desktop/testFile && ~/Desktop/testFile/mypt
-cat > ~/Desktop/testFile/mypt/h.txt
-H
-Press ctrl-d
-cp backend.py ~/Desktop/testFile
-cd ~/Desktop/testFile
-python backend.py
+python main.py create_repo
+
+python main.py check_in.py
+
+python main.py check_out.py
 ```
 
 ### Extra Features
-Unit Testing for sample input
+None
 
 ### Bugs
-We are not sure if the script will run on Windows OS.
+We are still not sure if the script will run on Windows OS.
 
-Did not test to check if a directory contains directory of files. So I believe there is an issue when a project tree contains more directories instead of files.
+We are not sure if a if the software will work if a directory contains a directory of files. So I beleive this is another issue.
