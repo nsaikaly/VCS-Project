@@ -1,8 +1,10 @@
-import os, shutil
+import os
+import shutil
+import sys
 from datetime import datetime
 
-g_NAME_OF_REPO = os.getcwd() + "/repo343" # Repo Directory Path.
-g_NAME_OF_MANIFEST_FOLDER = os.getcwd() + "/repo343/MANIFEST" # Manifest Directory Path.
+g_NAME_OF_REPO = sys.argv[1] + "/repo343" # Repo Directory Path.
+g_NAME_OF_MANIFEST_FOLDER = sys.argv[1] + "/repo343/MANIFEST" # Manifest Directory Path.
 
 
 # Creates a repo343 that stores all the files for the project tree.
@@ -10,7 +12,6 @@ g_NAME_OF_MANIFEST_FOLDER = os.getcwd() + "/repo343/MANIFEST" # Manifest Directo
 # ALine count = 9
 def initialize_repo():
     """Creates a repo343 that stores all the files for the project tree."""
-
     # checks if the g_NAME_OF_REPO path exist.
     if not os.path.exists(g_NAME_OF_REPO):
         copy_tree() # calls copy_tree function
@@ -38,10 +39,10 @@ def copy_tree():
     """Copies the project tree where backend.py is located."""
 
     # All the files to ignore when copying the Project Tree.
-    FILES_TO_IGNORE = ('main.py','VCS', '.git', '*.md', '.DS_Store', '.gitignore', 'repo343', 'myptOutPut', 'mypt2OutPut', 'bothptOutPut')
+    FILES_TO_IGNORE = '.DS_Store'
 
     # Copies the project tree to the repo343 directory.
-    shutil.copytree(os.getcwd(), g_NAME_OF_REPO, ignore = shutil.ignore_patterns(*FILES_TO_IGNORE))
+    shutil.copytree(sys.argv[0], g_NAME_OF_REPO, ignore = shutil.ignore_patterns(FILES_TO_IGNORE))
 
 # Walk through the initial repo343 directory.
 # Globals: parameter use for g_NAME_OF_REPO and g_NAME_OF_MANIFEST_FOLDER
